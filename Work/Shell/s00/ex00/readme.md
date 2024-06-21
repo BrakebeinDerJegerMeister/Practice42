@@ -7,9 +7,11 @@
 
 • Créez un fichier z qui, lorsque l’on fait un cat dessus, affiche "Z" suivi d’un retour
 à la ligne.
+```console
 ?>cat z
 Z
 ?>
+```
 
 # Correction
 

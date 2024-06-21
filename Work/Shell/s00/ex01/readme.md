@@ -7,10 +7,12 @@
 
 • Créer le fichier testShell00 dans votre répertoire de rendu.
 • Vous devrez faire en sorte que:
+```console
 %> ls -l
 total XX
 -r--r-xr-x 1 XX XX 40 Jun 1 23:42 testShell00
 %>
+```
 Pour les heures, il sera toléré que ce soit l’année qui s’affiche si la date de l’exercice
 (1 juin) est dépassée de six mois ou plus.
 • Une fois l’exercice résolu, vous exécuterez la commande tar -cf testShell00.tar

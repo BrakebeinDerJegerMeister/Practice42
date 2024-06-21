@@ -25,6 +25,12 @@ chmod 455 testShell00
 tar -cf testShell00.tar testShell00
 ```
 
+on aurait pu faire :
+
+```sh
+chmod u=r,g=rx,o=rx fichier.txt
+```
+
 
 # Explications
 

@@ -16,14 +16,21 @@ Z
 Dans la console :
 ```sh
 cd Practice42/Work/Shell/s00/ex00
-echo "Z" >> z
+echo "Z" > z
 ```
 
 # Explications
 
 
 echo "Z" génère une sortie  
-'>>' écrit à la fin du fichier indiqué (et le créé s'il n'existe pas)  
-Rappel : echo "texte >> fichier  
+`>>` écrit à la fin du fichier indiqué (et le créé s'il n'existe pas)  
+`>` remplace le contenu du fichier
+
+Rappel : 
+
+```sh
+echo "texte" >> fichier 
+echo "autre texte" > fichier2  
+```
 
 

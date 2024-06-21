@@ -4,7 +4,7 @@ Here are my practice doc files in order to be ready at the piscine 42 on Septemb
 I don't know if the docs are outdated. I just found them somewhere in gitHub.
 Open for every one who may need, however i'll do most of my comments in french.
 
-
+Je tiens à préciser que j'utilise Ubuntu 24.04 avec Gnome sur gdm3
 
 # Installation de Norminette
 

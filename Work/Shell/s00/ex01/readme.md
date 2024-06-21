@@ -22,16 +22,13 @@ truncate -s 40 testShell00
 
 chmod 455 testShell00
 
->> r: Read, w : Write, x : eXecute
->>
->> '-rwxrwxrwx' : -(prorpiétaire : rwx )(groupe : rwx )(autres : rwx)
->> '-421421421' : -(prorpiétaire : 421 )(groupe : 421 )(autres : 421)  
->>
->> donc
->>
->> '-r--r-xr-x' : -(prorpiétaire : r-- )(groupe : r-x )(autres : r-x)
->> '-4--4-14-1' : -(prorpiétaire : 400 )(groupe : 401 )(autres : 401)
->>
->> donc (4+0+0 = 4)(4+0+1 = 5)(4+0+1 = 5) donc 455
+r: Read, w : Write, x : eXecute
+
+'-rwxrwxrwx' : -(prorpiétaire : rwx )(groupe : rwx )(autres : rwx)
+'-421421421' : -(prorpiétaire : 421 )(groupe : 421 )(autres : 421)  
+donc
+'-r--r-xr-x' : -(prorpiétaire : r-- )(groupe : r-x )(autres : r-x)
+'-4--4-14-1' : -(prorpiétaire : 400 )(groupe : 401 )(autres : 401)
+donc (4+0+0 = 4)(4+0+1 = 5)(4+0+1 = 5) donc 455
 
 

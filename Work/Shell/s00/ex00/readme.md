@@ -1,3 +1,16 @@
+
+# Énoncé
+
+> Turn-in directory : ex00/
+> Files to turn in : z
+> Allowed functions : None
+
+• Créez un fichier z qui, lorsque l’on fait un cat dessus, affiche "Z" suivi d’un retour
+à la ligne.
+?>cat z
+Z
+?>
+
 # Correction
 
 Dans la console :

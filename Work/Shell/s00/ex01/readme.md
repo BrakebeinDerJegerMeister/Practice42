@@ -52,17 +52,24 @@ truncate -s 40 testShell00
 chmod 455 testShell00
 ```
 
+Pourquoi 455 ?
 
-r: Read, w : Write, x : eXecute  
+r: Read, w : Write, x : eXecute  = 1 paquet de 3 bits
+  et globalement : r = 4, w = 2, x = 1, rien = 0
   
+```
 -rwxrwxrwx : -(prorpiétaire : rwx )(groupe : rwx )(autres : rwx)  
 -421421421 : -(prorpiétaire : 421 )(groupe : 421 )(autres : 421)  
+```
   
-donc  
+donc  on applique et on fait la somme par partie :
   
+```
 -r--r-xr-x : -(prorpiétaire : r-- )(groupe : r-x )(autres : r-x)  
 -4--4-14-1 : -(prorpiétaire : 400 )(groupe : 401 )(autres : 401)  
-donc (4+0+0 = 4)(4+0+1 = 5)(4+0+1 = 5) donc 455  
+on additionne (4+0+0 = 4)(4+0+1 = 5)(4+0+1 = 5)
+on obtient finalement 455  
+```
 
 
 

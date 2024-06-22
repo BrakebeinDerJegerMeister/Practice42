@@ -1,6 +1,6 @@
 # Notes personnelles
 
-Here are my practice doc files in order to be ready at the piscine 42 on September 2024 the 16th.
+Here are my practice doc files in order to be ready for the piscine 42 experience on September 2024 the 16th.
 I don't know if the docs are outdated. I just found them somewhere in gitHub.
 Open for every one who may need, however i'll do most of my comments in french.
 

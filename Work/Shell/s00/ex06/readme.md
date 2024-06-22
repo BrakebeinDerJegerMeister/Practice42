@@ -1,9 +1,11 @@
 # Énoncé (GIT)
 
-> Turn-in directory : ex06/
-> Files to turn in : git_ignore.sh
-> Allowed functions : None
-
+| Exercise 06                      |
+| -------------------------------- |
+| GiT                              |
+| Turn-in directory : ex06/        |
+| Files to turn in : git_ignore.sh |
+| Allowed functions : None         |
 • Écrivez un court script shell qui renverra la liste des fichiers existants ignorés par
 votre dépot git actuellement présents dans votre dépot local. Exemple:
 ```console

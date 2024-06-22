@@ -2,11 +2,11 @@
 
 | Exercise 07               |
 | ------------------------- |
+|                           |
 | Turn-in directory : ex07/ |
 | Files to turn in : b      |
 | Allowed functions : None  |
-
-Créer le fichier b tel que :
+• Créer le fichier b tel que :
 ```console
 %>cat -e a
 STARWARS$

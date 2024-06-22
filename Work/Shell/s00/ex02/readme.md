@@ -1,9 +1,11 @@
-
 # Énoncé
-> Turn-in directory : ex02/
-> Files to turn in : exo2.tar
-> Allowed functions : None
 
+| Exercise 02                 |
+| --------------------------- |
+| Owi, encore...              |
+| Turn-in directory : ex02/   |
+| Files to turn in : exo2.tar |
+| Allowed functions : None    |
 • Créer tous ces fichiers et répertoires. Faire le nécessaire pour que l’affichage d’un
 ls -l dans votre répertoire ressemble à cela :
 ```console

@@ -1,10 +1,11 @@
-
 # Énoncé
 
-> Turn-in directory : ex00/
-> Files to turn in : z
-> Allowed functions : None
-
+| Exercise 00                    |
+| ------------------------------ |
+| Les vrais savent afficher un Z |
+| Turn-in directory : ex00/      |
+| Files to turn in : z           |
+| Allowed functions : None       |
 • Créez un fichier z qui, lorsque l’on fait un cat dessus, affiche "Z" suivi d’un retour
 à la ligne.
 ```console

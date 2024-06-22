@@ -1,9 +1,11 @@
 # Énoncé
 
-> Turn-in directory : ex04/
-> Files to turn in : midLS
-> Allowed functions : None
-
+| Exercise 04               |
+| ------------------------- |
+| midLS                     |
+| Turn-in directory : ex04/ |
+| Files to turn in : midLS  |
+| Allowed functions : None  |
 • Placez dans un fichier midLS la ligne de commande à taper pour lister les fichiers et
 les répertoires du répertoire courant, mais pas les fichiers cachés, ni "." ni ".." (rien
 ne commençant par un point), séparés par des virgules, triés par date de création

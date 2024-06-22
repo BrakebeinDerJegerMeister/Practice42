@@ -1,10 +1,11 @@
-
 # Énoncé
 
-> Turn-in directory : ex01/
-> Files to turn in : testShell00.tar
-> Allowed functions : None
-
+| Exercise 01                        |
+| ---------------------------------- |
+| C’est quoi des attributs ?         |
+| Turn-in directory : ex01/          |
+| Files to turn in : testShell00.tar |
+| Allowed functions : None           |
 • Créer le fichier testShell00 dans votre répertoire de rendu.
 • Vous devrez faire en sorte que:
 ```console

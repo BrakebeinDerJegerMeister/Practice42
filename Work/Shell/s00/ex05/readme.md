@@ -1,9 +1,11 @@
 # Énoncé
 
-> Turn-in directory : ex05/
-> Files to turn in : git_commit.sh
-> Allowed functions : None
-
+| Exercise 05                      |
+| -------------------------------- |
+| GiT commit?                      |
+| Turn-in directory : ex05/        |
+| Files to turn in : git_commit.sh |
+| Allowed functions : None         |
 • Créez un script shell qui renvoie les id des 5 derniers commit de votre dépot git.
 ```console
 %> bash git_commit.sh | cat -e

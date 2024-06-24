@@ -44,7 +44,7 @@ Repo Git : Practice42/Work/Shell/s01  (main) $
 
 La commande `wc` est décrite selon `man` de cette façon : Print  newline,  word, and byte counts for each FILE, and a total line if more than one FILE is specified.  A word is a non-zero-length sequence of printable characters delimited by white space.
 
-son option `-l, --lines` : print the newline counts,
+son option **`-l, --lines`** : print the newline counts,
 Autrement dit, compte le nombre de caractères de fin de ligne, d'où l'on déduit finalement le nombre de lignes.
 
 - **`find . -type f -o -type d | wc -l | cat -e`**:

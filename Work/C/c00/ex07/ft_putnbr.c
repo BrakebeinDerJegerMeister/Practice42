@@ -6,7 +6,7 @@
 /*   By: profchaos <temp@temp.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 12:20:32 by profchaos         #+#    #+#             */
-/*   Updated: 2024/06/28 13:21:01 by profchaos        ###   ########.fr       */
+/*   Updated: 2024/06/28 13:29:03 by profchaos        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_putnbr(int nb)
 	nextnumber(nb);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	ft_putnbr(42);
 	write(1, &(char){'\n'}, 1);
@@ -53,4 +53,4 @@ int	main(void)
 	ft_putnbr(-42);
 	write(1, &(char){'\n'}, 1);
 	return (0);
-}
+}*/

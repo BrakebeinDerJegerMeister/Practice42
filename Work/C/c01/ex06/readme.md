@@ -29,7 +29,6 @@ int	ft_strlen(char *str)
 	return (nb);
 }
 ```
-# Algorithme
 
 # Démonstration
 

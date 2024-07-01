@@ -73,15 +73,15 @@ int	main(void)
 ```
 
 ```
-Repo Git : Practice42/Work/C/c02/ex01  (main) $ norminette -RCheckForbiddenSourceHeader ft_strcpy.c 
+Repo Git : Practice42/Work/C/c02/ex00  (main) $ norminette -RCheckForbiddenSourceHeader ft_strcpy.c 
 ft_strcpy.c: Error!
 Error: DECL_ASSIGN_LINE     (line:  39, col:  19):	Declaration and assignation on a single line
-Repo Git : Practice42/Work/C/c02/ex01  (main) $ gcc -Wall -Wextra -Werror ft_strcpy.c 
-Repo Git : Practice42/Work/C/c02/ex01  (main) $ ./a.out 
+Repo Git : Practice42/Work/C/c02/ex00  (main) $ gcc -Wall -Wextra -Werror ft_strcpy.c 
+Repo Git : Practice42/Work/C/c02/ex00  (main) $ ./a.out 
 Hello 42
 Hello 42
 Hello 42
-Repo Git : Practice42/Work/C/c02/ex01  (main) $ 
+Repo Git : Practice42/Work/C/c02/ex00  (main) $ 
 ```
 # Explications
 La fonction `ft_strcpy` est une implémentation personnalisée de la fonction standard `strcpy` en C, utilisée pour copier la chaîne de caractères source `src` vers la destination `dest`. Cette fonction assure que la chaîne de caractères `src` est entièrement copiée dans `dest`, incluant le caractère de terminaison nul (`'\0'`), qui marque la fin d'une chaîne en C. 

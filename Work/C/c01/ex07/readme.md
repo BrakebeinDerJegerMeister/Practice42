@@ -36,7 +36,7 @@ void	ft_rev_int_tab(int *tab, int size)
 # Démonstration
 
 ```C
-int	nextnumber(int nb)
+void	nextnumber(int nb)
 {
 	char	disp;
 	int		next;
@@ -53,9 +53,6 @@ int	nextnumber(int nb)
 
 void	ft_putnbr(int nb)
 {
-	int		loop;
-	char	c;
-
 	if (nb < 0)
 	{
 		nb = -nb;

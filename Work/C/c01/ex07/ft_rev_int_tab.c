@@ -6,7 +6,7 @@
 /*   By: kaos <temp@temp.com>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 21:29:04 by kaos              #+#    #+#             */
-/*   Updated: 2024/06/30 22:22:25 by kaos             ###   ########.fr       */
+/*   Updated: 2024/07/01 07:13:58 by kaos             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_rev_int_tab(int *tab, int size)
 	}
 }
 
-/*int	nextnumber(int nb)
+/*void	nextnumber(int nb)
 {
 	char	disp;
 	int		next;
@@ -43,9 +43,6 @@ void	ft_rev_int_tab(int *tab, int size)
 
 void	ft_putnbr(int nb)
 {
-	int		loop;
-	char	c;
-
 	if (nb < 0)
 	{
 		nb = -nb;

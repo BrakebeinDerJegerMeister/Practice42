@@ -6,33 +6,33 @@
 /*   By: kaos <temp@temp.com>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 21:59:42 by kaos              #+#    #+#             */
-/*   Updated: 2024/07/02 07:22:15 by kaos             ###   ########.fr       */
+/*   Updated: 2024/07/02 13:04:45 by profchaos        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+char	*ft_strncpy(char *dest, const char *src, unsigned int n)
 {
 	char	*save;
 
 	save = dest;
-	while (--n && *src)
+	while (n-- && *src)
 	{
-		write(1, "-", 1); 
 		*dest++ = *src++;
+		//write(1, "~", 1);
 	}
-	*dest = '\0';
-	//n++;
+	n++;
 	while (n--)
 	{
-		write(1, "+", 1);
 		*dest++ = '\0';
+		//write(1, ".", 1);
 	}
+	//write(1, "\n", 1);
 	return (save);
 }
 
-void	ft_putstr(char *str)
+/*void	ft_putstr(char *str)
 {
 	while (*str)
 	{
@@ -61,8 +61,9 @@ int	main(void)
 	ft_putstr(src2);
 	write(1, "\n", 1);
 	res2 = ft_strncpy(dest2, src2, 5);
+	dest2[5] = '\0';
 	ft_putstr(dest2);
 	write(1, "\n", 1);
 	ft_putstr(res2);
 	write(1, "\n", 1);
-}
+}*/

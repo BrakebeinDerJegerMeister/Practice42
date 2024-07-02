@@ -6,13 +6,13 @@
 /*   By: profchaos <temp@temp.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 12:20:32 by profchaos         #+#    #+#             */
-/*   Updated: 2024/06/28 13:29:03 by profchaos        ###   ########.fr       */
+/*   Updated: 2024/07/02 11:39:50 by profchaos        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	nextnumber(int nb)
+void	nextnumber(int nb)
 {
 	char	disp;
 	int		next;
@@ -29,9 +29,6 @@ int	nextnumber(int nb)
 
 void	ft_putnbr(int nb)
 {
-	int		loop;
-	char	c;
-
 	if (nb < 0)
 	{
 		nb = -nb;

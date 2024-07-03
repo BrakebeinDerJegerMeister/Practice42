@@ -45,9 +45,6 @@ int	nextnumber(int nb)
 
 void	ft_putnbr(int nb)
 {
-	int		loop;
-	char	c;
-
 	if (nb < 0)
 	{
 		nb = -nb;

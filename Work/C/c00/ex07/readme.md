@@ -31,8 +31,11 @@ void	nextnumber(int nb)
 	write(1, &disp, 1);
 }
 
-void	ft_putnbr(int nb)
+void	ft_putnbr(int old_nb)
 {
+	long int	nb;
+
+	nb = (long int)old_nb;
 	if (nb < 0)
 	{
 		nb = -nb;
@@ -100,8 +103,20 @@ Le modulo est une opération qui donne le reste de la division d'un nombre par u
 La récursivité est une méthode où une fonction s'appelle elle-même pour résoudre une partie du problème jusqu'à ce qu'une condition finale soit atteinte, ici jusqu'à ce que `nb` soit zéro. Après avoir isolé le dernier chiffre avec le modulo, on réduit le nombre initial en enlevant le dernier chiffre (`(nb - next) / 10`), puis on rappelle la fonction avec ce nouveau nombre. Cela continue jusqu'à ce que tout le nombre soit traité, chiffre par chiffre.
 
 ### 3. Casts
-Il y a deux moments où des conversions de type (cast) sont utilisées :
+Il y a trois moments où des conversions de type (cast) sont utilisées :
+#### Cast pour convertir un int en long int
 
+Pour prévenir le débordement lors de la conversion de l'entier minimal en son opposé positif, une approche consiste à effectuer un cast vers un type de donnée de capacité supérieure. En effet, dans le cas où l'entier minimal serait par exemple -2147483648 (pour un `int` sur des architectures 32 bits), et l'entier positif maximal serait 2147483647, convertir directement l'entier minimal en positif entraînerait un débordement, car 2147483648 ne peut pas être représenté par un `int`.
+
+Pour contourner cette limitation, il est recommandé de convertir la valeur initiale en un type de donnée ayant une capacité supérieure. Voici un exemple de conversion explicite en C utilisant un cast pour transformer un `int` en `long int` :
+
+```C
+long int	nb;
+
+nb = (long int)old_nb;
+```
+
+Cette opération garantit que même la valeur absolue de l'entier minimal pourra être représentée correctement, évitant ainsi le risque de débordement lors des opérations ultérieures. En utilisant `long int`, qui typiquement offre une plus grande plage de représentation numérique que `int`, la valeur -2147483648 peut être convertie en 2147483648 sans risque de dépasser les limites du type.
 #### Cast pour convertir un chiffre en caractère
 ```c
 disp = next + '0';

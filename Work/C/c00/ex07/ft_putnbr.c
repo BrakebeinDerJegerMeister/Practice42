@@ -6,7 +6,7 @@
 /*   By: profchaos <temp@temp.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 12:20:32 by profchaos         #+#    #+#             */
-/*   Updated: 2024/07/02 11:39:50 by profchaos        ###   ########.fr       */
+/*   Updated: 2024/07/08 16:00:13 by profchaos        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,11 @@ void	nextnumber(int nb)
 	write(1, &disp, 1);
 }
 
-void	ft_putnbr(int nb)
+void	ft_putnbr(int old_nb)
 {
+	long int	nb;
+
+	nb = (long int)old_nb;
 	if (nb < 0)
 	{
 		nb = -nb;

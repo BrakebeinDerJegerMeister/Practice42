@@ -16,10 +16,10 @@ void ft_putnbr(int nb);
 ```C
 #include <unistd.h>
 
-void	nextnumber(int nb)
+void	nextnumber(long int nb)
 {
-	char	disp;
-	int		next;
+	char		disp;
+	long int	next;
 
 	next = nb % 10;
 	disp = next + '0';

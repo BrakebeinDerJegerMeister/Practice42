@@ -6,16 +6,16 @@
 /*   By: profchaos <temp@temp.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 12:20:32 by profchaos         #+#    #+#             */
-/*   Updated: 2024/07/08 16:00:13 by profchaos        ###   ########.fr       */
+/*   Updated: 2024/07/08 16:05:13 by profchaos        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	nextnumber(int nb)
+void	nextnumber(long int nb)
 {
-	char	disp;
-	int		next;
+	char		disp;
+	long int	next;
 
 	next = nb % 10;
 	disp = next + '0';

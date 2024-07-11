@@ -6,46 +6,43 @@
 /*   By: kaos <temp@temp.com>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 16:30:34 by kaos              #+#    #+#             */
-/*   Updated: 2024/07/10 21:54:35 by kaos             ###   ########.fr       */
+/*   Updated: 2024/07/11 15:24:34 by profchaos        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+int	is_whitespace(char chr)
 {
-	int	i;
-
-	i = 0;
-	while (*str++)
-		i++;
-	return (i);
+	if (chr == 32 || (chr > 10 && chr < 14))
+		return (1);
+	return (0);
 }
 
 int	ft_atoi(char *str)
 {
-	int		len;
-	int		rank;
+	int		factor;
 	int		nb;
-	char	chr;
+	int		i;
 
-	rank = 0;
-	len = ft_strlen(str);
 	nb = 0;
-	while(len>0) {
-		chr = str[len - 1];
-		if (chr >= '0' && chr <= '0')
-			rank++;
-		else
-			rank = 0;
-		if (chr == '-')
-			nb = -nb;
-		
-		len--;
+	i = 0;
+	factor = 1;
+	while (is_whitespace(str[i]))
+		i++;
+	while (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			factor = -factor;
+		i++;
 	}
-	return (nb);
-
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		nb = (int)str[i] - 48 + nb * 10;
+		i++;
+	}
+	return (factor * nb);
 }
 
-#include <stdlib.h>
+/*#include <stdlib.h>
 #include <stdio.h>
 
 void	test(char *str)
@@ -66,4 +63,4 @@ int	main(void)
 	test("+45");
 	test("-42");
 	return (0);
-}
+}*/

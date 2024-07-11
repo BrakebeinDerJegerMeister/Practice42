@@ -1,3 +1,16 @@
+# ft_str_len
+
+```C
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (*str++)
+		i++;
+	return (i);
+}
+```
 
 # ft_putchar
 
@@ -24,29 +37,32 @@ void	ft_putstr(char *str)
 # ft_putnbr
 
 ```C
-void	put_positive_nbr(int nb)
+void	nextnumber(long int nb)
 {
-	char	disp;
-	int		next;
+	char		disp;
+	long int	next;
 
 	next = nb % 10;
-	disp = next + '0';
 	nb = (nb - next) / 10;
 	if (nb != 0)
 	{
-		put_positive_nbr(nb);
+		nextnumber(nb);
 	}
+	disp = next + '0';
 	write(1, &disp, 1);
 }
 
-void	ft_putnbr(int nb)
+void	ft_putnbr(int old_nb)
 {
+	long int	nb;
+
+	nb = (long int)old_nb;
 	if (nb < 0)
 	{
 		nb = -nb;
 		write(1, &(char){'-'}, 1);
 	}
-	put_positive_nbr(nb);
+	nextnumber(nb);
 }
 ```
 

@@ -33,7 +33,7 @@ int ft_atoi(char *str);
 ```C
 int	is_whitespace(char chr)
 {
-	if (chr == 32 || (chr > 10 && chr < 14))
+	if (chr == 32 || (chr > 8 && chr < 14))
 		return (1);
 	return (0);
 }

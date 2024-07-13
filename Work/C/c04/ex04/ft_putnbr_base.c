@@ -6,7 +6,7 @@
 /*   By: profchaos <temp@temp.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 15:35:47 by profchaos         #+#    #+#             */
-/*   Updated: 2024/07/11 16:24:03 by profchaos        ###   ########.fr       */
+/*   Updated: 2024/07/13 15:42:38 by kaos             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-void	put_positive_nbrbase(int nb, int ibase, char *base)
+void	put_positive_nbrbase(long nb, int ibase, char *base)
 {
-	int		current;
+	long	current;
 
 	current = nb % ibase;
 	nb = (nb - current) / ibase;
@@ -35,29 +35,48 @@ void	put_positive_nbrbase(int nb, int ibase, char *base)
 	write(1, &base[current], 1);
 }
 
-void	ft_putnbr_base(int nbr, char *base)
+int	check_base_error(char *base, int ibase)
 {
-	int	ibase;
 	int	i;
+	int	j;
 
-	i = 0;
-	ibase = ft_strlen(base);
 	if (ibase == 0 || ibase == 1)
-		return;
+		return (1);
+	i = 0;
 	while (base[i] != '\0')
 	{
 		if (base[i] == '+' || base[i] == '-')
-			return;
+			return (1);
+		j = i + 1;
+		while (base[j] != '\0')
+		{
+			if (base[i] == base[j])
+				return (1);
+			j++;
+		}
+		i++;
 	}
-	if (nbr< 0)
+	return (0);
+}
+
+void	ft_putnbr_base(int nbr, char *base)
+{
+	int		ibase;
+	long	new_nbr;
+
+	ibase = ft_strlen(base);
+	new_nbr = nbr;
+	if (check_base_error(base, ibase))
+		return ;
+	if (nbr < 0)
 	{
 		nbr = -nbr;
 		write(1, &(char){'-'}, 1);
 	}
-	put_positive_nbrbase(nbr, ibase, base);
+	put_positive_nbrbase(new_nbr, ibase, base);
 }
 
-#include <stdio.h>
+/*#include <stdio.h>
 
 void	test(int nbr, char *base)
 {
@@ -69,9 +88,12 @@ void	test(int nbr, char *base)
 
 int	main(void)
 {	
-	test(789456, "0123456789");
-	test(5814, "01");
-	test(484529100, "poneyvif");
-	test(484529100, "foin");
+	test(581499, "0123456789");
+	test(581499, "0123456789ABCDEF");
+	test(581499, "01");
+	test(581499, "");
+	test(581499, "coucou");
+	test(-484529100, "poneyvif");
+	test(-484529100, "foin");
 	return (0);
-}
+}*/

@@ -86,9 +86,9 @@ void	ft_putnbr_base(int nbr, char *base)
 	new_nbr = nbr;
 	if (check_base_error(base, ibase))
 		return ;
-	if (nbr < 0)
+	if (new_nbr < 0)
 	{
-		nbr = -nbr;
+		new_nbr = -new_nbr;
 		write(1, &(char){'-'}, 1);
 	}
 	put_positive_nbrbase(new_nbr, ibase, base);
@@ -151,11 +151,11 @@ base : {coucou}
 
 nbr : {-484529100}
 base : {poneyvif}
--occpuucc
+-eyfpnvofoy
 
 nbr : {-484529100}
 base : {foin}
--ififffiifif
+-onfnifooofnnfnf
 Repo Git : Practice42/Work/C/c04/ex04  (main *) $ 
 ```
 # Explications

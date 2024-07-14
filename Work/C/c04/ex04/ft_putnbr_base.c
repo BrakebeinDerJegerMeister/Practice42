@@ -6,7 +6,7 @@
 /*   By: profchaos <temp@temp.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 15:35:47 by profchaos         #+#    #+#             */
-/*   Updated: 2024/07/13 15:42:38 by kaos             ###   ########.fr       */
+/*   Updated: 2024/07/14 13:29:24 by kaos             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ void	ft_putnbr_base(int nbr, char *base)
 	new_nbr = nbr;
 	if (check_base_error(base, ibase))
 		return ;
-	if (nbr < 0)
+	if (new_nbr < 0)
 	{
-		nbr = -nbr;
+		new_nbr = -new_nbr;
 		write(1, &(char){'-'}, 1);
 	}
 	put_positive_nbrbase(new_nbr, ibase, base);

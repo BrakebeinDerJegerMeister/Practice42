@@ -1,10 +1,10 @@
 # Énoncé
 
-| Exercice : 02                            |
+| Exercice : 03                            |
 | ---------------------------------------- |
-| ft_iterative_power                       |
-| Dossier de rendu : ex02/                 |
-| Fichiers à rendre : ft_iterative_power.c |
+| ft_recursive_power                       |
+| Dossier de rendu : ex03/                 |
+| Fichiers à rendre : ft_recursive_power.c |
 | Fonctions Autorisées : Aucune            |
 • Écrire une fonction itérative qui renvoie une puissance d’un nombre. Une puissance
 inferieur à 0 renverra 0.

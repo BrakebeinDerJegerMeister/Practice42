@@ -1,6 +1,5 @@
 # Installation
 
-Installer d'abord Norminette par la méthode décrite dans Help/Norminette
 Copier le fichier gcc1.vim
 
 Dans le dossier 

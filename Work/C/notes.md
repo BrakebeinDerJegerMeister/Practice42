@@ -34,6 +34,22 @@ void	ft_putstr(char *str)
 }
 ```
 
+# ft_strcpy
+
+```C
+char	*ft_strcpy(char *dest, char *src)
+{
+	char	*save;
+
+	save = dest;
+	while (*src)
+	{
+		*dest++ = *src++;
+	}
+	*dest = '\0';
+	return (save);
+}
+```
 # ft_strncmp
 
 ```C

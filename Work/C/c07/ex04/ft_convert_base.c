@@ -6,23 +6,12 @@
 /*   By: profchaos <temp@temp.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:51:46 by profchaos         #+#    #+#             */
-/*   Updated: 2024/07/22 15:37:06 by profchaos        ###   ########.fr       */
+/*   Updated: 2024/07/23 12:52:12 by profchaos        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	get_rank(char c, char *base)
-{
-	int	i;
-
-	i = 0;
-	while (base[i] != '\0')
-	{
-		if (c == base[i])
-			return (i);
-		i++;
-	}
-	return (-1);
-}
+#include <stdlib.h>
+#include <stdio.h>
 
 int	check_base(char *base)
 {
@@ -48,74 +37,110 @@ int	check_base(char *base)
 	return (i);
 }
 
-int	int	ft_atoi_base(char *str, char *base)
+int	atoi_positive_base(char *str, char *base, int ibase)
 {
-	int	factor;
-	int	ibase;
+	int	i;
 	int	nb;
 	int	val;
+	int	j;
 
-	factor = 1;
+	i = 0;
 	nb = 0;
-	ibase = check_base(base);
-	if (ibase == 0)
-		return (0);
-	while (str[0] == 32 || (str[0] > 8 && str[0] < 14))
-		str++;
-	while (str[0] == '-' || str[0] == '+')
+	while (str[i] != '\0')
 	{
-		if (str[0] == '-')
-			factor = -factor;
-		str++;
-	}
-	while(str[0] != '\0')
-	{
-		val = get_rank(str[0], base);
+		val = -1;
+		j = -1;
+		while (++j < ibase)
+		{
+			if (base[j] == str[i])
+			{
+				val = j;
+				break ;
+			}
+		}
+		if (val == -1)
+			return (0);
 		nb = val + nb * ibase;
-		str++;
+		i++;
 	}
-	return (nb * factor);
+	return (nb);
 }
 
-int	ft_convert_base(char *nbr, char *base_from, char *base_to)
+char	*my_strcat(char *str1, char *str2)
 {
-	int	factor;
-	int	nb;
-	int	i;
-	int	ibase_from;
-	int	ibase_to;
+	char	*new;
+	char	*save;
+	int		i;
 
-	nb = 0;
 	i = 0;
+	while (str1[i] != '\0')
+		i++;
+	while (str2[i] != '\0')
+		i++;
+	new = (char *)malloc(i + 1);
+	save = new;
+	while (*str1)
+		*new++ = *str1++;
+	while (*str2)
+		*new++ = *str2++;
+	*new = '\0';
+	return (save);
+}
+
+char	*get_positive_nbrbase(long nb, char *base, int ibase)
+{
+	long	current;
+	char	*str1;
+	char	*str2;
+
+	current = nb % ibase;
+	nb = (nb - current) / ibase;
+	if (nb != 0)
+		str1 = get_positive_nbrbase(nb, base, ibase);
+	else
+		str1 = "";
+	str2 = my_strcat(str1, (char []){base[current], '\0'});
+	return (str2);
+}
+
+char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
+{
+	int		factor;
+	int		ibase_from;
+	int		ibase_to;
+	int		nb1;
+	char	*nb2;
+
 	factor = 1;
 	ibase_from = check_base(base_from);
 	ibase_to = check_base(base_to);
-	if (! (ibase_from && ibase_to))
-		return (0);
-	while (nbr == 32 || (nbr > 8 && nbr < 14))
-		i++;
-	while (nbr[i] == '-' || nbr[i] == '+')
+	if (ibase_from == 0 || ibase_to == 0)
+		return (NULL);
+	while (nbr[0] == 32 || (nbr[0] > 8 && nbr[0] < 14))
+		nbr++;
+	while (nbr[0] == '-' || nbr[0] == '+')
 	{
-		if (str[i] == '-')
+		if (nbr[0] == '-')
 			factor = -factor;
-		i++;
+		nbr++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		nb = (int)str[i] - 48 + nb * 10;
-		i++;
-	}
-	return (factor * nb);
+	nb1 = atoi_positive_base(nbr, base_from, ibase_from);
+	nb2 = get_positive_nbrbase(nb1, base_to, ibase_to);
+	if (factor == -1)
+		nb2 = my_strcat("-", nb2);
+	return (nb2);
 }
 
-#include <stdio.h>
+//#include <stdio.h>
 
-void	test(char *str, char *base)
+void	test(char *str, char *base_from, char *base_to)
 {
-	int	nb = ft_atoi_base(str, base);
+	char	*nb = ft_convert_base(str, base_from, base_to);
 	printf("\nstr : {%s}", str);
-	printf("\nbase : {%s}", base);
-	printf("\nnb : {%d}\n", nb);
+	printf("\nbase from : {%s}", base_from);
+	printf("\nbase to : {%s}", base_to);
+	printf("\nnb : {%s}\n", nb);
+	free(nb);
 }
 
 int	main(void)

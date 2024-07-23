@@ -6,12 +6,11 @@
 /*   By: profchaos <temp@temp.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:51:46 by profchaos         #+#    #+#             */
-/*   Updated: 2024/07/23 12:52:12 by profchaos        ###   ########.fr       */
+/*   Updated: 2024/07/23 22:02:54 by kaos             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
 int	check_base(char *base)
 {
@@ -131,7 +130,7 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	return (nb2);
 }
 
-//#include <stdio.h>
+/*#include <stdio.h>
 
 void	test(char *str, char *base_from, char *base_to)
 {
@@ -152,4 +151,4 @@ int	main(void)
 	test("    +---+215", "0123456789", "0123456789ABCDEF");
 	test("-eyfpnvofoy", "poneyvif", "foin");
 	return (0);
-}
+}*/

@@ -48,12 +48,12 @@ int	check_base(char *base)
 	return (i);
 }
 
-int	atoi_positive_base(char *str, char *base, int ibase)
+long	atoi_positive_base(char *str, char *base, int ibase)
 {
-	int	i;
-	int	nb;
-	int	val;
-	int	j;
+	int		i;
+	long	nb;
+	int		val;
+	int		j;
 
 	i = 0;
 	nb = 0;
@@ -119,7 +119,7 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	int		factor;
 	int		ibase_from;
 	int		ibase_to;
-	int		nb1;
+	long	nb1;
 	char	*nb2;
 
 	factor = 1;

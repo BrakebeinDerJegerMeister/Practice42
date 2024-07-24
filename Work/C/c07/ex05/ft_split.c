@@ -6,7 +6,7 @@
 /*   By: profchaos <temp@temp.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 10:13:50 by profchaos         #+#    #+#             */
-/*   Updated: 2024/07/24 13:03:28 by profchaos        ###   ########.fr       */
+/*   Updated: 2024/07/24 22:36:25 by kaos             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,41 +52,61 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-void	next(char *str, char *charset, int count, char ***array)
+void	mystrcpy(char **str, char *from, int len)
+{
+	int	i;
+
+	*str = (char *)malloc(len + 1);
+	(*str)[len] = '\0';
+	i = 0;
+	while (i < len)
+	{
+		(*str)[i] = from[i];
+		i++;
+	}
+	printf("\ncharset_pos : {%d}, string : {%s}\n", len, *str);
+}
+
+void	next(char *str, char *charset, int counts[], char ***array)
 {
 	int		charset_pos;
 	int		charset_len;
-	int		i;
 
-	if (! *str)
-	{
-		*array = (char **)malloc(count + 1);
-		(*array)[count] = NULL;
-		return ;
-	}
+	printf("\n----------------------------");
+	printf("\ncount[0] : {%d}\n", counts[0]);
+	printf("count[1] : {%d}", counts[1]);
 	charset_len = ft_strlen(charset);
 	charset_pos = get_strpos(str, charset);
-	printf("\n{%d}\n", charset_pos);
-	if (charset_pos > 0)
+	printf("\ncharset_pos : {%d}", charset_pos);
+	printf("\n str : {%s}", str);
+	if (charset_pos == 0)
 	{
-		next(str + charset_pos + charset_len, charset, count + 1, array);
-		*(array)[count] = (char *)malloc(charset_pos + 1);
-		*(array)[count][charset_pos] = '\0';
-		i = 0;
-		while (i < charset_pos)
-		{
-			*(array)[count][i] = str[i];
-			i++;
-		}
-		printf("\n{%s}\n", *(array)[count]);
+		next(str + charset_len, charset, counts, array);
 	}
+	else if (charset_pos > 0)
+	{
+	next(str + charset_pos + charset_len, charset, (int[2]){counts[0] + 1, counts[1] + charset_pos + 1}, array);
+	mystrcpy(&(*array)[counts[0]], str, charset_pos);
+	}
+	else if (*str && charset_pos == -1)
+	{
+		next(str + ft_strlen(str), charset, (int[2]){counts[0] + 1, counts[1] + ft_strlen(str) + 1}, array);
+		mystrcpy(&(*array)[counts[0]], str, ft_strlen(str));
+	}
+	if (*str == '\0' && charset_pos == -1)
+	{
+		printf("\n@@@ FIN @@@\n");
+		*array = (char **)malloc(counts[1] + 1);
+		(*array)[counts[1]] = NULL;
+	}
+	return ;
 }
 
 char	**ft_split(char *str, char *charset)
 {
 	char	**array;
 
-	next(str, charset, 0, &array);
+	next(str, charset, (int[2]){0, 0}, &array);
 	return (array);
 }
 
@@ -95,21 +115,23 @@ char	**ft_split(char *str, char *charset)
 void	test(char *str, char *charset)
 {
 	char	**tab;
+	int		i;
 
 	tab = ft_split(str, charset);
 	if (!tab)
 		return ;
-	while (*tab)
+	i = 0;
+	while (tab[i] != NULL)
 	{
-		printf("%s\n", *tab);
-		free(tab[0]);
-		tab++;
+		printf("%s\n", tab[i]);
+		free(tab[i]);
+		i++;
 	}
 	free(tab);
 }
 
 int	main(void)
 {
-	test ("aaa--456f----hheh--tjjjjjj--uu", "--");
+	test ("aaa--456f----hheh--tjjjjjj--yyyyyy", "--");
 	return (0);
 }

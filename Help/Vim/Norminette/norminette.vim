@@ -1,2 +1,2 @@
-nnoremap <F2> :w<CR>:!norminette -RCheckForbiddenSourceHeader %<CR>
+nnoremap <F2> :w<CR>:!norminette -RCheckForbiddenSourceHeader -RCheckDefine %<CR>
 

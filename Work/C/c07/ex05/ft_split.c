@@ -6,12 +6,11 @@
 /*   By: profchaos <temp@temp.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 10:13:50 by profchaos         #+#    #+#             */
-/*   Updated: 2024/07/24 22:36:25 by kaos             ###   ########.fr       */
+/*   Updated: 2024/07/25 10:51:48 by profchaos        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
 int	get_strpos(char *str, char *to_find)
 {
@@ -64,40 +63,33 @@ void	mystrcpy(char **str, char *from, int len)
 		(*str)[i] = from[i];
 		i++;
 	}
-	printf("\ncharset_pos : {%d}, string : {%s}\n", len, *str);
 }
 
-void	next(char *str, char *charset, int counts[], char ***array)
+void	next(char *str, char *charset, int count, char ***array)
 {
-	int		charset_pos;
-	int		charset_len;
+	int	cpos;
+	int	clen;
+	int	slen;
 
-	printf("\n----------------------------");
-	printf("\ncount[0] : {%d}\n", counts[0]);
-	printf("count[1] : {%d}", counts[1]);
-	charset_len = ft_strlen(charset);
-	charset_pos = get_strpos(str, charset);
-	printf("\ncharset_pos : {%d}", charset_pos);
-	printf("\n str : {%s}", str);
-	if (charset_pos == 0)
+	cpos = get_strpos(str, charset);
+	clen = ft_strlen(charset);
+	if (cpos == 0)
+		next(str + clen, charset, count, array);
+	else if (cpos > 0)
 	{
-		next(str + charset_len, charset, counts, array);
+		next(str + cpos + clen, charset, count + 1, array);
+		mystrcpy(&(*array)[count], str, cpos);
 	}
-	else if (charset_pos > 0)
+	else if (*str && cpos == -1)
 	{
-	next(str + charset_pos + charset_len, charset, (int[2]){counts[0] + 1, counts[1] + charset_pos + 1}, array);
-	mystrcpy(&(*array)[counts[0]], str, charset_pos);
+		slen = ft_strlen(str);
+		next(str + slen, charset, count + 1, array);
+		mystrcpy(&(*array)[count], str, slen);
 	}
-	else if (*str && charset_pos == -1)
+	if (*str == '\0' && cpos == -1)
 	{
-		next(str + ft_strlen(str), charset, (int[2]){counts[0] + 1, counts[1] + ft_strlen(str) + 1}, array);
-		mystrcpy(&(*array)[counts[0]], str, ft_strlen(str));
-	}
-	if (*str == '\0' && charset_pos == -1)
-	{
-		printf("\n@@@ FIN @@@\n");
-		*array = (char **)malloc(counts[1] + 1);
-		(*array)[counts[1]] = NULL;
+		*array = (char **)malloc((count + 1) * 8);
+		(*array)[count] = NULL;
 	}
 	return ;
 }
@@ -106,11 +98,11 @@ char	**ft_split(char *str, char *charset)
 {
 	char	**array;
 
-	next(str, charset, (int[2]){0, 0}, &array);
+	next(str, charset, 0, &array);
 	return (array);
 }
 
-#include <stdio.h>
+/*#include <stdio.h>
 
 void	test(char *str, char *charset)
 {
@@ -121,17 +113,20 @@ void	test(char *str, char *charset)
 	if (!tab)
 		return ;
 	i = 0;
-	while (tab[i] != NULL)
+	printf("====================\n");
+	while (tab[i])
 	{
 		printf("%s\n", tab[i]);
 		free(tab[i]);
 		i++;
 	}
 	free(tab);
+	printf("====================\n\n");
 }
 
 int	main(void)
 {
-	test ("aaa--456f----hheh--tjjjjjj--yyyyyy", "--");
+	test("aaa--456f----hheh--tjjjjjm--oyyyyo", "--");
+	test("012301456045600789f0ffzt0hrtjj00jrj000", "0");
 	return (0);
-}
+}*/

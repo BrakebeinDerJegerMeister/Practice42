@@ -6,7 +6,7 @@
 /*   By: profchaos <temp@temp.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 10:06:45 by profchaos         #+#    #+#             */
-/*   Updated: 2024/07/26 12:58:15 by profchaos        ###   ########.fr       */
+/*   Updated: 2024/07/26 18:13:45 by kaos             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 	t_stock_str	*stk;
 
 	cpy = NULL;
-	stk = (t_stock_str *)malloc(sizeof(t_stock_str) * (1 + ac));
+	stk = (struct s_stock_str *)malloc(sizeof(stk) * (1 + ac));
 	if (!stk)
 		return (NULL);
 	i = 0;
@@ -63,7 +63,7 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 	return (stk);
 }
 
-#include <stdio.h>
+/*#include <stdio.h>
 
 void	print_tab(struct s_stock_str *par)
 {
@@ -92,4 +92,4 @@ int	main(void)
 		print_tab(stk);
 	}
 	return (0);
-}
+}*/

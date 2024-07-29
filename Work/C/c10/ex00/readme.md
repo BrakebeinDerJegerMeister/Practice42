@@ -73,6 +73,32 @@ int	main(int argc, char **argv)
 	return (0);
 }
 ```
+
+```make
+SRCS = srcs/ft_display_file.c
+OBJS = $(SRCS:.c=.o)
+NAME = ft_display_file
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	gcc $^ -o $@ -Wall -Wextra -Werror
+
+%.o: %.c
+	gcc -c $< -o $@ -Wall -Wextra -Werror
+
+clean:
+	rm -f $(OBJS)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: 
+	$(MAKE) fclean 
+	$(MAKE) all
+
+.PHONY: all clean fclean re
+```
 # Démonstration
 
 ```

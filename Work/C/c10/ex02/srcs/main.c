@@ -6,7 +6,7 @@
 /*   By: profchaos <temp@temp.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 09:40:20 by profchaos         #+#    #+#             */
-/*   Updated: 2024/07/30 13:01:16 by profchaos        ###   ########.fr       */
+/*   Updated: 2024/07/31 11:29:50 by profchaos        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int	get_filesize(char *filename)
 		if (bytes_read <= 0)
 			break ;
 	}
+	close(fd);
 	return (size);
 }
 
@@ -99,6 +100,7 @@ int	tail(char *filename, int limit)
 		if (bytes_read <= 0)
 			break ;
 	}
+	close(fd);
 	return (0);
 }
 

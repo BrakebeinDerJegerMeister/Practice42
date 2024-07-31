@@ -70,6 +70,7 @@ int	get_filesize(char *filename)
 		if (bytes_read <= 0)
 			break ;
 	}
+	close(fd);
 	return (size);
 }
 
@@ -106,6 +107,7 @@ int	tail(char *filename, int limit)
 		if (bytes_read <= 0)
 			break ;
 	}
+	close(fd);
 	return (0);
 }
 

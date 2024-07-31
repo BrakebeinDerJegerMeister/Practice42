@@ -6,7 +6,7 @@
 /*   By: profchaos <temp@temp.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 15:13:06 by profchaos         #+#    #+#             */
-/*   Updated: 2024/07/30 11:44:59 by profchaos        ###   ########.fr       */
+/*   Updated: 2024/07/31 11:28:30 by profchaos        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	disp_file(char *filename)
 		buffer[bytes_read] = '\0';
 		write(1, buffer, bytes_read);
 	}
-	close (fd);
+	close(fd);
 	return (0);
 }
 

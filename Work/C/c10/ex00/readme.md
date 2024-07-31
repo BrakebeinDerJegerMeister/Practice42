@@ -50,7 +50,7 @@ int	disp_file(char *filename)
 		buffer[bytes_read] = '\0';
 		write(1, buffer, bytes_read);
 	}
-	close (fd);
+	close(fd);
 	return (0);
 }
 

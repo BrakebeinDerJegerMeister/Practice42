@@ -114,8 +114,6 @@ char	**ft_split(char *str, char *charset)
 	return (array);
 }
 ```
-# Algorithme
-
 # Démonstration
 
 ```C

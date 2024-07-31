@@ -6,7 +6,7 @@
 /*   By: profchaos <temp@temp.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 09:56:43 by profchaos         #+#    #+#             */
-/*   Updated: 2024/07/31 13:05:27 by profchaos        ###   ########.fr       */
+/*   Updated: 2024/07/31 23:11:11 by kaos             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	print_hexstr(char *str, int bytes_read)
 	size = 16;
 	while (i < bytes_read)
 	{
-		c1 = HEX_DIGIT((str[i] >> 4) & 0xF);
-		c2 = HEX_DIGIT(str[i] & 0xF);
+		c1 = hex_digit((str[i] >> 4) & 0xF);
+		c2 = hex_digit(str[i] & 0xF);
 		write(1, &c1, 1);
 		write(1, &c2, 1);
 		write(1, " ", 1);
@@ -41,30 +41,16 @@ void	print_hexstr(char *str, int bytes_read)
 	write(1, " ", 1);
 }
 
-void	print_hexaddr(int addr)
-{
-	int					sz;
-	char				disp;
-
-	sz = 8;
-	while (--sz >= 0)
-	{
-		disp = HEX_DIGIT((addr >> (4 * sz)) & 0xF);
-		write(1, &disp, 1);
-	}
-	write(1, "  ", 2);
-}
-
-void	print_line(char *buffer, int addr, int bytes_read)
+int	print_line(char *buffer, int addr, int bytes_read)
 {
 	int		i;
 	char	c;
 
-	print_hexaddr(addr);
+	print_addr(addr, "  ");
 	print_hexstr(buffer, bytes_read);
 	i = 0;
 	if (bytes_read > 0)
-		write(1, "|", 1);
+		write(1, "  |", 3);
 	while (i < bytes_read)
 	{
 		c = buffer[i];
@@ -77,31 +63,51 @@ void	print_line(char *buffer, int addr, int bytes_read)
 	if (bytes_read > 0)
 		write(1, "|", 1);
 	write(1, "\n", 1);
+	return (0);
 }
 
-int	hexdump(char *filename)
+void	hexdump(int fd, char buffers[2][17], int bytes[2], int *same)
 {
-	unsigned int	i;
-	char			buffer[17];
-	char			old_buffer[17];
-	int				bytes_read;
-	int				fd;
+	int	i;
+
+	i = 0;
+	while (1)
+	{
+		copy_16(buffers[1], buffers[0]);
+		bytes[1] = bytes[0];
+		bytes[0] = read(fd, buffers[0], 16);
+		if (bytes[0] <= 0)
+			print_addr(16 * (i - (i > 0)) + bytes[1], "\n");
+		if (bytes[0] <= 0)
+			break ;
+		buffers[0][bytes[0]] = '\0';
+		if (is_equal_16(buffers[0], buffers[1]))
+		{
+			if (*same == 0)
+				write(1, "*\n", 2);
+			if (*same == 0)
+				*same = 1;
+		}
+		else
+			*same = print_line(buffers[0], 16 * i, bytes[0]);
+		i++;
+	}
+}
+
+int	read_file(char *filename)
+{
+	int		fd;
+	int		same;
+	int		bytes[2];
+	char	buffers[2][17];
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		return (1);
-	i = 0;
-	while (1)
-	{
-		old_buffer = buffer;
-		bytes_read = read(fd, buffer, 16);
-		if (bytes_read <= 0)
-			break ;
-		buffer[bytes_read] = '\0';
-		print_line(buffer, i * 16, bytes_read);
-		i++;
-	}
-	print_line(buffer, i * 16, 0);
+	bytes[0] = 0;
+	bytes[1] = 0;
+	same = 0;
+	hexdump(fd, buffers, bytes, &same);
 	close(fd);
 	return (0);
 }
@@ -113,7 +119,7 @@ int	main(int argc, char *argv[])
 	filename = NULL;
 	if (argc != 3)
 	{
-		PUTSTR_ERR("Wrong number of arguments.\n");
+		putstr_err("Wrong number of arguments.\n");
 		return (1);
 	}
 	if (argv[1][0] == '-' && argv[1][1] == 'C' && argv[1][2] == '\0')
@@ -122,15 +128,15 @@ int	main(int argc, char *argv[])
 		filename = argv[1];
 	if (filename == NULL)
 	{
-		PUTSTR_ERR("Wrong option.\n");
+		putstr_err("Wrong option.\n");
 		return (1);
 	}
-	if (hexdump(filename))
+	if (read_file(filename))
 	{
-		PUTSTR_ERR(basename(filename));
-		PUTSTR_ERR("error : ");
-		PUTSTR_ERR(strerror(errno));
-		PUTSTR_ERR("\n");
+		putstr_err(basename(filename));
+		putstr_err("error : ");
+		putstr_err(strerror(errno));
+		putstr_err("\n");
 	}
 	return (0);
 }

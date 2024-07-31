@@ -6,7 +6,7 @@
 /*   By: profchaos <temp@temp.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:47:30 by profchaos         #+#    #+#             */
-/*   Updated: 2024/07/31 11:47:14 by profchaos        ###   ########.fr       */
+/*   Updated: 2024/07/31 22:58:14 by kaos             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@
 # include <errno.h>
 # include <fcntl.h>
 
-# define PUTSTR_ERR(S) { char *s = (S); while (*s) write(2, s++, 1); }
-
-# define HEX_DIGIT(NIBBLE) ((NIBBLE) + '0' + ((NIBBLE) > 9) * 39)
-
+void	print_addr(int addr, char *next);
+char	hex_digit(char c);
+void	putstr_err(char *str);
+void	copy_16(char *s1, char *s2);
+int		is_equal_16(char *s1, char *s2);
 
 #endif

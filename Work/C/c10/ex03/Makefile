@@ -6,11 +6,11 @@
 #    By: profchaos <temp@temp.com>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/31 11:07:54 by profchaos         #+#    #+#              #
-#    Updated: 2024/07/31 11:13:07 by profchaos        ###   ########.fr        #
+#    Updated: 2024/07/31 20:16:06 by kaos             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = srcs/main.c
+SRCS = srcs/main.c srcs/suppl.c
 OBJS = $(SRCS:.c=.o)
 NAME = ft_hexdump
 HEADERS = headers

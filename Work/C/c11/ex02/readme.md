@@ -54,7 +54,7 @@ int	ft_any(char **tab, int (*f)(char*))
 
 int	main(void)
 {
-	char 	*strs1[] = {"hello", "world", "42", "a", "allo", NULL};
+	char	*strs1[] = {"hello", "world", "42", "a", "allo", NULL};
 	char	*strs2[] = {"a", "b", "c", NULL};
 	int			has_any;
 	

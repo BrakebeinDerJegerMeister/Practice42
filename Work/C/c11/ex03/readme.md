@@ -18,20 +18,6 @@ int ft_count_if(char **tab, int length, int(*f)(char*));
 ```C
 #include <unistd.h>
 
-int	minlen_2(char *c)
-{
-	int	i;
-
-	i = 0;
-	while (c[i] != '\0')
-	{
-		i++;
-		if (i > 2)
-			return (1);
-	}
-	return (0);
-}
-
 int	ft_count_if(char **tab, int (*f)(char*))
 {
 	int	i;
@@ -52,6 +38,20 @@ int	ft_count_if(char **tab, int (*f)(char*))
 
 ```C
 #include <stdio.h>
+
+int	minlen_2(char *c)
+{
+	int	i;
+
+	i = 0;
+	while (c[i] != '\0')
+	{
+		i++;
+		if (i > 2)
+			return (1);
+	}
+	return (0);
+}
 
 int	main(void)
 {

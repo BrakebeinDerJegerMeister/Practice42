@@ -19,11 +19,6 @@ int *ft_map(int *tab, int length, int(*f)(int));
 ```C
 #include <stdlib.h>
 
-int	square(int nb)
-{
-	return (nb * nb);
-}
-
 int	*ft_map(int *tab, int length, int (*f)(int))
 {
 	int	i;
@@ -43,6 +38,11 @@ int	*ft_map(int *tab, int length, int (*f)(int))
 
 ```C
 #include <stdio.h>
+
+int	square(int nb)
+{
+	return (nb * nb);
+}
 
 void	disp(int *t, int l)
 {

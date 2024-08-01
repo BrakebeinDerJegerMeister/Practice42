@@ -6,7 +6,7 @@
 /*   By: profchaos <temp@temp.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:47:30 by profchaos         #+#    #+#             */
-/*   Updated: 2024/07/31 22:58:14 by kaos             ###   ########.fr       */
+/*   Updated: 2024/08/01 09:12:24 by profchaos        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,9 @@ char	hex_digit(char c);
 void	putstr_err(char *str);
 void	copy_16(char *s1, char *s2);
 int		is_equal_16(char *s1, char *s2);
+void	print_hexstr(char *str, int bytes_read);
+int		print_line(char *buffer, int addr, int bytes_read);
+void	hexdump(int fdn, char buffers[2][17], int bytes[2], int *same);
+int		read_file(char *filename);
 
 #endif

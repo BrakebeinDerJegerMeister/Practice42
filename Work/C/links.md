@@ -99,3 +99,10 @@
 | libft    | [[C/c09/ex00/readme]] |
 | Makefile | [[C/c09/ex01/readme]] |
 | ft_split | [[C/c09/ex02/readme]] |
+
+| c10          | [[c10.pdf]]           |
+| ------------ | --------------------- |
+| display_file | [[C/c10/ex00/readme]] |
+| cat          | [[C/c10/ex01/readme]] |
+| tail         | [[C/c10/ex02/readme]] |
+| hexdump      | [[C/c10/ex03/readme]] |

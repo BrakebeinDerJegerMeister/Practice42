@@ -6,43 +6,47 @@
 /*   By: profchaos <temp@temp.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 15:34:19 by profchaos         #+#    #+#             */
-/*   Updated: 2024/08/01 15:49:47 by profchaos        ###   ########.fr       */
+/*   Updated: 2024/08/02 10:24:04 by profchaos        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	add(int a, int b, char *msg)
+#include "do_op.h"
+
+int	add(int a, int b, int *err)
 {
-	(void)*msg;
+	*err = 0;
 	return (a + b);
 }
 
-int	sub(int a, int b, char *msg)
+int	sub(int a, int b, int *err)
 {
-	(void)*msg;
+	*err = 0;
 	return (a - b);
 }
 
-int	mul(int a, int b, char *msg)
+int	mul(int a, int b, int *err)
 {
-	(void)*msg;
+	*err = 0;
 	return (a * b);
 }
 
-int	div(int a, int b, char *msg)
+int	div(int a, int b, int *err)
 {
 	if (b == 0)
 	{
-		*msg = "Stop : division by zero\n";
+		*err = 1;
+		ft_putstr("Stop : division by zero\n");
 		return (0);
 	}
 	return (a / b);
 }
 
-int	mod(int a, int b, char *msg)
+int	mod(int a, int b, int *err)
 {
 	if (b == 0)
 	{
-		*msg = "Stop : modulo by zero\n";
+		*err = 1;
+		ft_putstr("Stop : modulo by zero\n");
 		return (0);
 	}
 	return (a % b);

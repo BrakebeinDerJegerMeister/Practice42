@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   do-op.h                                            :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: profchaos <temp@temp.com>                  +#+  +:+       +#+        */
+/*   By: kaos <temp@temp.com>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/01 16:00:59 by profchaos         #+#    #+#             */
-/*   Updated: 2024/08/01 16:59:35 by profchaos        ###   ########.fr       */
+/*   Created: 2024/06/30 20:40:38 by kaos              #+#    #+#             */
+/*   Updated: 2024/08/02 09:55:58 by profchaos        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DO_OP_H
-# define DO_OP_H
+#include "do_op.h"
 
-#include <unistd.h>
+void	ft_putstr(char *str)
+{
+	while (*str)
+	{
+		write(1, str, 1);
+		str++;
+	}
+}
 
-#endif
+/*int	main(void)
+{
+	ft_putstr("42");
+	ft_putstr("\n");
+	ft_putstr("Bla bla bla");
+	ft_putstr("\n");
+	return (0);
+}*/

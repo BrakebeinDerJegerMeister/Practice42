@@ -6,50 +6,41 @@
 /*   By: profchaos <temp@temp.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 12:04:21 by profchaos         #+#    #+#             */
-/*   Updated: 2024/08/02 12:56:14 by profchaos        ###   ########.fr       */
+/*   Updated: 2024/08/02 16:25:57 by kaos             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-int	sort_asc(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
-	char	c1;
-	char	c2;
+	int	i;
 
-	while (*s1 != '\0' && *s2 != '\0')
+	i = 0;
+	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
 	{
-		c1 = *s1++;
-		c2 = *s2++;
-		if (c1 != c2)
-			return (c1 - c2);
+		i++;
 	}
-	return (c1 - c2);
+	return (s1[i] - s2[i]);
 }
 
 void	ft_sort_string_tab(char **tab)
 {
 	int		i;
 	int		j;
-	int		c;
 	char	*comp;
 
 	i = 1;
 	while (tab[i - 1] && tab[i])
 	{
 		comp = tab[i];
-		j = i;
-		while (j > 0)
+		j = i - 1;
+		while (j >= 0 && ft_strcmp(comp, tab[j]) < 0)
 		{
+			tab[j + 1] = tab[j];
 			j--;
-			c = sort_asc(comp, tab[j - 1]);
-			if (c > 0)
-			{
-				tab[j + 1] = tab[j];
-				break ;
-			}
 		}
-		tab[j] = comp;
-	i++;
+		if (j < i - 1)
+			tab[j + 1] = comp;
+		i++;
 	}
 }
 
@@ -69,6 +60,7 @@ void	print_tab(char **tab)
 int	main(void)
 {
 	char	*tab[5] = {"Lion", "Chaton", "Chat", "Kangourou", NULL};
+
 	print_tab(tab);
 	ft_sort_string_tab(tab);
 	print_tab(tab);

@@ -73,8 +73,9 @@ void	print_corner(int cx, int cy, int x, int y)
 
 void	print_other(int cx, int cy, int x, int y)
 {
-	if (((cx == 1 || cx == x) && (cy > 1 && cy < y))
-		|| ((cx > 1 && cx < x) && (cy == 1 || cy == y)))
+	if ((cx == 1 || cx == x) && (cy > 1 && cy < y))
+		ft_putchar('|');
+	if ((cx > 1 && cx < x) && (cy == 1 || cy == y))
 		ft_putchar('-');
 	else if (cx > 1 && cx < x && cy > 1 && cy < y)
 		ft_putchar(' ');

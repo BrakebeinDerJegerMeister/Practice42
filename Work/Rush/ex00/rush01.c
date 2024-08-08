@@ -6,7 +6,7 @@
 /*   By: profchaos <temp@temp.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 15:35:19 by profchaos         #+#    #+#             */
-/*   Updated: 2024/08/08 15:54:39 by profchaos        ###   ########.fr       */
+/*   Updated: 2024/08/08 18:53:02 by kaos             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	print_corner(int cx, int cy, int x, int y)
 {
 	if (cx == 1 && cy == 1)
 		ft_putchar('/');
-	else if (cx == 1 && cy == y)
+	else if (cx == 1 && cy == y && cy > 1)
 		ft_putchar('\\');
-	else if (cx == x && cy == y)
+	else if (cx == x && cy == y && cy > 1)
 		ft_putchar('/');
 	else if (cx == x && cy == 1)
 		ft_putchar('\\');

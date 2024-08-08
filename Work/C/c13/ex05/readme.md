@@ -15,7 +15,23 @@ void *btree_search_item(t_btree *root, void *data_ref, int (*cmpf)(void *, void 
 
 btree_search_item.c :
 ```C
+#include "ft_btree.h"
+#include <stdlib.h>
 
+void	*btree_search_item(t_btree *root, void *data_ref,
+	int (*cmpf)(void *, void *))
+{
+	t_btree	*res;
+
+	if (!root)
+		return (NULL);
+	if ((*cmpf)(root->item, data_ref) == 0)
+		return (root);
+	res = btree_search_item(root->left, data_ref, cmpf);
+	if (!res)
+		res = btree_search_item(root->right, data_ref, cmpf);
+	return (res);
+}
 ```
 
 ft_btree.h :

@@ -30,9 +30,11 @@ return (0);
 
 main.c :
 ```C
+void	rush(int x, int y);
+
 int	main(void)
 {
-	rush(5, 1);
+	rush(5, 3);
 	return (0);
 }
 ```
@@ -47,6 +49,15 @@ void	ft_putchar(char c)
 }
 ```
 # Rush 00
+
+### rush(5, 3)
+```
+$>./a.out
+o---o
+|   |
+o---o
+$>
+```
 ### Correction
 
 rush00.c
@@ -92,38 +103,37 @@ void	rush(int x, int y)
 ### Démonstration
 
 ```
-Repo Git : Practice42/Work/Rush/ex00  (main *) $ ./a.out 
+Repo Git : Practice42/Work/Rush/ex00  (main *) $ cc -Wall -Wextra -Werror main.c ft_putchar.c rush00.c -o a.out
+Repo Git : Practice42/Work/Rush/ex00  (main *) $ ./a.out
 o---o
---
---
---
+|   |
 o---o
 Repo Git : Practice42/Work/Rush/ex00  (main *) $ cc -Wall -Wextra -Werror main.c ft_putchar.c rush00.c -o a.out
-Repo Git : Practice42/Work/Rush/ex00  (main *) $ ./a.out 
-o---o
--   -
--   -
--   -
+Repo Git : Practice42/Work/Rush/ex00  (main *) $ ./a.out
 o---o
 Repo Git : Practice42/Work/Rush/ex00  (main *) $ cc -Wall -Wextra -Werror main.c ft_putchar.c rush00.c -o a.out
-Repo Git : Practice42/Work/Rush/ex00  (main *) $ ./a.out 
-o---o
-Repo Git : Practice42/Work/Rush/ex00  (main *) $ cc -Wall -Wextra -Werror main.c ft_putchar.c rush00.c -o a.out
-Repo Git : Practice42/Work/Rush/ex00  (main *) $ ./a.out 
-o
--
--
--
+Repo Git : Practice42/Work/Rush/ex00  (main *) $ ./a.out
 o
 Repo Git : Practice42/Work/Rush/ex00  (main *) $ cc -Wall -Wextra -Werror main.c ft_putchar.c rush00.c -o a.out
-Repo Git : Practice42/Work/Rush/ex00  (main *) $ ./a.out 
+Repo Git : Practice42/Work/Rush/ex00  (main *) $ ./a.out
 o
-Repo Git : Practice42/Work/Rush/ex00  (main *) $ 
+|
+|
+|
+o
 ```
 ### Explications
 
 
-# Rush 00
+# Rush 01
+### rush(5, 3)
+```
+$>./a.out
+/***\
+*   *
+\***/
+$>
+```
 ### Correction
 
 rush01.c :
@@ -137,7 +147,14 @@ rush01.c :
 ```
 ### Explications
 
-# Rush 00
+# Rush 02
+
+### rush(5, 3)
+```
+$>./a.out
+
+$>
+```
 ### Correction
 
 rush02.c :
@@ -151,7 +168,14 @@ rush02.c :
 ```
 ### Explications
 
-# Rush 00
+# Rush 03
+
+### rush(5, 3)
+```
+$>./a.out
+
+$>
+```
 ### Correction
 
 rush03.c
